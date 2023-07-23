@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    />
+    <style>
+      #signup {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        margin: 100px auto;
+        font-family: "Spartan", sans-serif;
+        background-color: #faf3f0;
+        padding: 50px 400px;
+      }
+      /* .container {
+      max-width: 400px;
+      margin: 50px auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    } */
+      .container {
+        width: 400px;
+        height: 400px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding-top: 50px;
+        border: none;
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      input[type="text"],
+      input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        border-radius: 3px;
+        border: 1px solid #ccc;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+      }
+
+      input[type="submit"] {
+        width: 100%;
+        background-color: #4caf50;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #45a049;
+      }
+
+      p {
+        text-align: center;
+        margin-top: 10px;
+        text-decoration: none;
+        color: rgb(14, 240, 165);
+      }
+      p a {
+        text-decoration: none;
+        color: #1a201a;
+      }
+      p a:hover {
+        color: #5617d4;
+      }
+
+      .error {
+        color: red;
+        margin-bottom: 10px;
+      }
+      img {
+        max-width: 400px;
+        border-radius: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <section id="header">
+      <a href="#"><img src="../img/logo.jpg" alt="logo" class="logo" /></a>
+      <p class="name">R &#38;M SHOP</p>
+      <div>
+        <ul id="navbar">
+          <li><a href="index.html">Home</a></li>
+          <li><a class="active" href="shop.html">shop</a></li>
+          <li><a href="blog.html">blog</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="signin.html">sign in</a></li>
+          <li>
+            <a href="cart.html"><i class="far fa-shopping-bag"></i></a>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section id="signup">
+      <div class="container">
+        <h1>Sign Up</h1>
+        <form>
+          <div class="error" id="error-message"></div>
+          <input type="text" placeholder="Username" id="username" required />
+          <input
+            type="password"
+            placeholder="Password"
+            id="password"
+            required
+          />
+          <input type="submit" value="Submit" onclick="validateForm(event)" />
+        </form>
+        <!-- something change -->
+        <p>
+          <a class="already" href="signin.html">Already have an account? </a>
+        </p>
+      </div>
+      <div><img src="../img/signup.png" alt="" /></div>
+      <script>
+        function validateForm(event) {
+          event.preventDefault();
+
+          var username = document.getElementById("username").value;
+          var password = document.getElementById("password").value;
+          var errorMessage = document.getElementById("error-message");
+
+          if (username === "" || password === "") {
+            errorMessage.textContent = "Please fill in all fields.";
+          } else {
+            alert("Form submitted!");
+          }
+        }
+      </script>
+    </section>
+    <footer class="section-p1">
+      <div class="col">
+        <h4>contact</h4>
+        <p><strong>Adress:</strong> SMSH,CUET</p>
+        <p><strong>Phone::</strong> 01810392901</p>
+        <p><strong>Hours:</strong> 10.00-18.00,mon-sat</p>
+        <div class="follow">
+          <h4>Follow us</h4>
+          <div class="icon">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-pinterest-p"></i>
+            <i class="fab fa-youtube"></i>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <h4>About</h4>
+        <a href="#">About us</a>
+        <a href="#">Delivery Info</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms & Condition</a>
+        <a href="#">Contact Us</a>
+      </div>
+      <div class="col">
+        <h4>My Account</h4>
+        <a href="#">Sign In</a>
+        <a href="#">View Cart</a>
+        <a href="#">My Wishlist</a>
+        <a href="#">Track My Order</a>
+        <a href="#">Help</a>
+      </div>
+      <div class="col install">
+        <h4>Install app</h4>
+        <p>From app store or Google play</p>
+        <div class="row">
+          <img src="../img/pay/app.jpg" alt="" />
+          <img src="../img/pay/play.jpg" alt="" />
+        </div>
+        <p>Secured Payment Gateway</p>
+        <img src="../img/pay/pay.png" alt="" />
+      </div>
+    </footer>
+    <div class="copyright">
+      <p>&#169; 2023,R &#38;M SHOP E-COMERMECE COMPANY</p>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
