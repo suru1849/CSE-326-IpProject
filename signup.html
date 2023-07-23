@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="./css/style.css" />
     <link
       rel="stylesheet"
       href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
     />
     <style>
-      #sign {
+      #signup {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -20,7 +20,14 @@
         background-color: #faf3f0;
         padding: 50px 400px;
       }
-
+      /* .container {
+      max-width: 400px;
+      margin: 50px auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    } */
       .container {
         width: 400px;
         height: 400px;
@@ -31,119 +38,112 @@
         border: none;
       }
 
-      .container h2 {
+      h1 {
         text-align: center;
-        font-weight: 600;
-        padding-bottom: 20px;
+        margin-bottom: 20px;
       }
 
-      .form-group {
-        margin-bottom: 15px;
-      }
-
-      .form-group label {
-        display: block;
-        margin-bottom: 5px;
-        font-weight: 400;
-      }
-
-      .form-group input {
+      input[type="text"],
+      input[type="password"] {
         width: 100%;
-        padding: 8px;
-        border: 1px solid #044ee0;
-        border-radius: 4px;
+        padding: 10px;
+        border-radius: 3px;
+        border: 1px solid #ccc;
+        margin-bottom: 10px;
+        box-sizing: border-box;
       }
 
-      .form-group input[type="submit"] {
-        background-color: #fcfcfc;
-        color: rgb(12, 103, 54);
+      input[type="submit"] {
+        width: 100%;
+        background-color: #4caf50;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 3px;
         cursor: pointer;
-        font-size: 18px;
       }
 
-      .form-group input[type="submit"]:hover {
+      input[type="submit"]:hover {
         background-color: #45a049;
+      }
+
+      p {
+        text-align: center;
+        margin-top: 10px;
+        text-decoration: none;
+        color: rgb(14, 240, 165);
+      }
+      p a {
+        text-decoration: none;
+        color: #1a201a;
+      }
+      p a:hover {
+        color: #5617d4;
+      }
+
+      .error {
+        color: red;
+        margin-bottom: 10px;
       }
       img {
         max-width: 400px;
         border-radius: 8px;
       }
-      /* sign-up */
-      .ssignup {
-        text-align: center;
-        /* border: 1px solid black; */
-      }
-      .ssignup a {
-        text-decoration: none;
-      }
-      .ssignup button {
-        padding: 8px;
-        font-size: 18px;
-        border-radius: 5px;
-        border: none;
-        background-color: slategray;
-      }
     </style>
   </head>
   <body>
     <section id="header">
-      <a href="#"><img src="../img/logo.jpg" alt="logo" class="logo" /></a>
+      <a href="#"><img src="./img/logo.jpg" alt="logo" class="logo" /></a>
       <p class="name">R &#38;M SHOP</p>
       <div>
         <ul id="navbar">
           <li><a href="index.html">Home</a></li>
-          <li><a href="shop.html">shop</a></li>
+          <li><a class="active" href="shop.html">shop</a></li>
           <li><a href="blog.html">blog</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
-          <li><a class="active" href="signin.html">sign in</a></li>
+          <li><a href="signin.html">sign in</a></li>
           <li>
             <a href="cart.html"><i class="far fa-shopping-bag"></i></a>
           </li>
         </ul>
       </div>
     </section>
-    <section id="sign">
+    <section id="signup">
       <div class="container">
-        <h2>SIGN IN</h2>
+        <h1>Sign Up</h1>
         <form>
-          <div class="form-group">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required />
-          </div>
-          <div class="form-group">
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required />
-          </div>
-          <div class="form-group">
-            <input type="submit" value="Sign In" />
-          </div>
-          <!-- sign up -->
-          <div class="ssignup">
-            <button class="signup">
-              <a href="signup.html">Sign up</a>
-            </button>
-          </div>
-          <script>
-            function validateForm(event) {
-              event.preventDefault();
-
-              var username = document.getElementById("username").value;
-              var password = document.getElementById("password").value;
-              var errorMessage = document.getElementById("error-message");
-
-              if (username === "" || password === "") {
-                errorMessage.textContent = "Please fill in all fields.";
-              } else {
-                alert("Form submitted!");
-              }
-            }
-          </script>
+          <div class="error" id="error-message"></div>
+          <input type="text" placeholder="Username" id="username" required />
+          <input
+            type="password"
+            placeholder="Password"
+            id="password"
+            required
+          />
+          <input type="submit" value="Submit" onclick="validateForm(event)" />
         </form>
+        <!-- something change -->
+        <p>
+          <a class="already" href="signin.html">Already have an account? </a>
+        </p>
       </div>
-      <div>
-        <img src="../img/singin.png" alt="" />
-      </div>
+      <div><img src="./img/signup.png" alt="" /></div>
+      <script>
+        function validateForm(event) {
+          event.preventDefault();
+
+          var username = document.getElementById("username").value;
+          var password = document.getElementById("password").value;
+          var errorMessage = document.getElementById("error-message");
+
+          if (username === "" || password === "") {
+            errorMessage.textContent = "Please fill in all fields.";
+          } else {
+            alert("Form submitted!");
+          }
+        }
+      </script>
     </section>
     <footer class="section-p1">
       <div class="col">
@@ -182,11 +182,11 @@
         <h4>Install app</h4>
         <p>From app store or Google play</p>
         <div class="row">
-          <img src="../img/pay/app.jpg" alt="" />
-          <img src="../img/pay/play.jpg" alt="" />
+          <img src="./img/pay/app.jpg" alt="" />
+          <img src="./img/pay/play.jpg" alt="" />
         </div>
         <p>Secured Payment Gateway</p>
-        <img src="../img/pay/pay.png" alt="" />
+        <img src="./img/pay/pay.png" alt="" />
       </div>
     </footer>
     <div class="copyright">
